@@ -1,0 +1,6 @@
+{
+  "name": "MarketimHatay - 15 Dakikada Taze Market & Akıllı Asistan",
+  "description": "Hatay'ın Bereketli Sofralarına 15 Dakikada Taze & Hızlı Teslimat. Yapay zekâlı akıllı alışveriş asistanı, kurye takip ve dark store yönetim platformu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

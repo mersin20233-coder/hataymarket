@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="bagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Background with rounded corners (squircle) -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+
+  <!-- Inner glow border -->
+  <rect x="8" y="8" width="496" height="496" rx="120" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="4" />
+
+  <!-- Shopping bag icon -->
+  <g filter="url(#shadow)">
+    <!-- Bag handles -->
+    <path d="M196 180 C196 140 220 108 256 108 C292 108 316 140 316 180" 
+          fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round" />
+    
+    <!-- Bag body -->
+    <path d="M152 188 L360 188 L384 396 C384 416 368 432 348 432 L164 432 C144 432 128 416 128 396 Z" 
+          fill="url(#bagGrad)" />
+    
+    <!-- Express Delivery Lightning Bolt -->
+    <path d="M268 220 L216 304 L260 304 L244 380 L308 288 L268 288 Z" 
+          fill="url(#boltGrad)" />
+  </g>
+
+  <!-- Notification / Turbo Badge -->
+  <circle cx="380" cy="132" r="38" fill="#ef4444" stroke="#ffffff" stroke-width="8" />
+  <path d="M366 132 L376 142 L394 122" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

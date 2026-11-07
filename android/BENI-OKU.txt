@@ -1,0 +1,64 @@
+===================================================================
+     HATAYMARKET MOBİL UYGULAMA YAYINLAMA & PAYLAŞMA KILAVUZU
+     (Google Play Store, Android APK ve iOS iPhone Kurulumu)
+===================================================================
+
+[BÖLÜM 1] GOOGLE PLAY STORE'A YÜKLEME (ADIM ADIM)
+-------------------------------------------------------------------
+Google Play Store'a yüklemek için Google, .aab (Android App Bundle) formatında paket ister:
+
+ADIM 1 - AAB PAKETİNİ OLUŞTURUN (1 TIKLA):
+1. Bu klasördeki "2-GOOGLE-PLAY-AAB-OLUSTUR.bat" dosyasına çift tıklayın.
+2. Derleme tamamlandığında Google Play Console'a yüklenecek olan
+   "app-release.aab" dosyası otomatik açılır!
+   (Konum: app\build\outputs\bundle\release\app-release.aab)
+
+ADIM 2 - GOOGLE PLAY CONSOLE'A GİRİŞ YAPIN:
+1. https://play.google.com/console adresine gidin.
+2. Google Play Geliştirici Hesabınızla giriş yapın (25$ tek seferlik kayıt).
+3. "Uygulama Oluştur" (Create App) butonuna tıklayın:
+   - Uygulama Adı: HatayMarket
+   - Varsayılan Dil: Türkçe
+   - Tür: Uygulama (App)
+   - Ücretsiz / Ücretli: Ücretsiz (Free)
+
+ADIM 3 - AAB DOSYASINI YÜKLEYİN:
+1. Sol menüden "Üretim" (Production) veya "Kapalı Test" (Closed testing) seçin.
+2. "Yeni Sürüm Oluştur" (Create new release) deyin.
+3. "Uygulama Paketleri" bölümüne az önce oluşturulan "app-release.aab" dosyasını sürükleyip bırakın.
+4. Sürüm adı (1.0.0) ve sürüm notlarını yazıp "Kaydet"e basın.
+
+ADIM 4 - MAĞAZA BİLGİLERİNİ DOLDURUN (Store Listing):
+- Kısa Açıklama: Hatay'ın Bereketli Sofralarına 15 Dakikada Taze & Hızlı Teslimat.
+- Tam Açıklama: HatayMarket ile taze manav, kasap, temel gıda, fırın ve Hatay yöresel ürünleri 15 dakikada kapınızda! Canlı kurye takibi, akıllı fiyat alarmları ve yapay zekalı yemek asistanı.
+- Uygulama Simgesi: 512x512 PNG (public/pwa-512x512.png)
+- Özellik Grafiği (Feature Graphic): 1024x500 PNG
+- Ekran Görüntüleri: Uygulama içinden çekilen telefon ekran görüntüleri.
+
+ADIM 5 - İNCELEMEYE GÖNDERİN:
+"İncelemeye Gönder" butonuna basın. Google ekibi 24-72 saat içinde uygulamanızı onaylayıp Google Play Store'da herkese açık olarak yayınlar!
+
+-------------------------------------------------------------------
+[BÖLÜM 2] HİÇ MAĞAZA OLMADAN TELEFONA APK OLARAK YÜKLEME
+-------------------------------------------------------------------
+1. "1-APK-OLUSTUR.bat" dosyasına çift tıklayın.
+2. "app-debug.apk" dosyası otomatik olarak klasörde açılır.
+3. Bu APK dosyasını WhatsApp veya USB kablosu ile herhangi bir Android telefona gönderin.
+4. Telefonda APK'ya tıklayıp "Yükle" dediğinizde HatayMarket anında kurulur!
+
+-------------------------------------------------------------------
+[BÖLÜM 3] IPHONE / IOS CİHAZLARDA PAYLAŞMA VE YÜKLEME
+-------------------------------------------------------------------
+1. iPhone telefonunuzda bağlantıyı SAFARI tarayıcısında açın.
+2. Alt ortadaki "Paylaş" (kare içinden yukarı ok simgesi) butonuna basın.
+3. Listeyi aşağı kaydırıp "Ana Ekrana Ekle" (Add to Home Screen) seçin.
+4. Sağ üstteki "Ekle"ye basın.
+5. HatayMarket logosuyla iPhone ana ekranınıza kurulur ve App Store uygulaması gibi tam ekran, çentik uyumlu çalışır!
+
+-------------------------------------------------------------------
+[BÖLÜM 4] MÜŞTERİLERLE ANINDA PAYLAŞMA (QR KOD & LİNK)
+-------------------------------------------------------------------
+Uygulamanın sağ üstündeki "Mobil Uygulama & Paylaş" butonuna tıklayarak:
+- WhatsApp üzerinden tüm müşterilere veya kuryelere link gönderebilirsiniz.
+- QR kodu mağazanıza veya broşürünüze basarak müşterilerin telefon kamerasıyla okutup anında sipariş vermesini sağlayabilirsiniz!
+===================================================================

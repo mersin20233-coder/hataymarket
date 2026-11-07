@@ -1,0 +1,163 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "HatayMarket kullanıcı hesabı (Müşteri, Mağaza Sahibi, Kurye, Admin, Denetçi)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "role": { "type": "string", "enum": ["customer", "store_owner", "courier", "admin", "auditor"] },
+        "status": { "type": "string", "enum": ["active", "pending", "suspended"] },
+        "isVerified": { "type": "boolean" },
+        "storeId": { "type": "string", "maxLength": 128 },
+        "courierId": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "name", "role", "status"]
+    },
+    "products": {
+      "title": "Product",
+      "description": "Market kataloğundaki ürün kaydı",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "category": { "type": "string", "maxLength": 64 },
+        "brand": { "type": "string", "maxLength": 64 },
+        "price": { "type": "number" },
+        "unitPrice": { "type": "string", "maxLength": 64 },
+        "unit": { "type": "string", "maxLength": 32 },
+        "stock": { "type": "number" },
+        "image": { "type": "string", "maxLength": 1024 },
+        "storeId": { "type": "string", "maxLength": 128 },
+        "isOrganic": { "type": "boolean" },
+        "isGlutenFree": { "type": "boolean" },
+        "isHalal": { "type": "boolean" }
+      },
+      "required": ["id", "name", "category", "price", "stock", "storeId"]
+    },
+    "orders": {
+      "title": "Order",
+      "description": "Müşteri teslimat siparişi",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerId": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "storeId": { "type": "string", "maxLength": 128 },
+        "storeName": { "type": "string", "maxLength": 128 },
+        "courierId": { "type": "string", "maxLength": 128 },
+        "subtotal": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "tip": { "type": "number" },
+        "total": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "picking", "picked", "on_way", "delivered", "cancelled"] },
+        "paymentMethod": { "type": "string", "enum": ["card", "door_card", "door_cash", "transfer"] },
+        "paymentStatus": { "type": "string", "enum": ["paid", "pending", "failed"] },
+        "otpCode": { "type": "string", "maxLength": 16 },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "customerId", "storeId", "total", "status"]
+    },
+    "stores": {
+      "title": "Store",
+      "description": "Hatay ve çevre bölgelerdeki üye marketler",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "category": { "type": "string", "maxLength": 64 },
+        "rating": { "type": "number" },
+        "address": { "type": "string", "maxLength": 256 },
+        "deliveryMin": { "type": "number" },
+        "isOpen": { "type": "boolean" }
+      },
+      "required": ["id", "name", "isOpen"]
+    },
+    "auditLogs": {
+      "title": "AuditLog",
+      "description": "Sistem güvenlik, işlem ve denetim kayıtları",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "actorId": { "type": "string", "maxLength": 128 },
+        "actorName": { "type": "string", "maxLength": 128 },
+        "actorRole": { "type": "string", "maxLength": 64 },
+        "action": { "type": "string", "maxLength": 128 },
+        "targetType": { "type": "string", "maxLength": 64 },
+        "targetId": { "type": "string", "maxLength": 128 },
+        "details": { "type": "string", "maxLength": 1024 },
+        "severity": { "type": "string", "enum": ["info", "warning", "critical"] },
+        "timestamp": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "actorId", "action", "details"]
+    },
+    "categories": {
+      "title": "Category",
+      "description": "Market ürün kategorileri ve alt kategori tanımları",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "iconEmoji": { "type": "string", "maxLength": 32 },
+        "image": { "type": "string", "maxLength": 1024 },
+        "displayOrder": { "type": "number" },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["id", "name", "displayOrder", "isActive"]
+    },
+    "stockMovementLogs": {
+      "title": "StockMovementLog",
+      "description": "Ürün stok artış, azalış ve düzeltme hareketleri geçmişi",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "productId": { "type": "string", "maxLength": 128 },
+        "productName": { "type": "string", "maxLength": 128 },
+        "productBarcode": { "type": "string", "maxLength": 64 },
+        "adminId": { "type": "string", "maxLength": 128 },
+        "adminName": { "type": "string", "maxLength": 128 },
+        "previousStock": { "type": "number" },
+        "newStock": { "type": "number" },
+        "changeAmount": { "type": "number" },
+        "reason": { "type": "string", "maxLength": 64 },
+        "reasonText": { "type": "string", "maxLength": 128 },
+        "timestamp": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "productId", "adminId", "newStock", "reason"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "Kullanıcı profilleri ve yetki bilgileri"
+    },
+    "/products/{productId}": {
+      "schema": "products",
+      "description": "Market ürün kataloğu ve anlık stok bilgileri"
+    },
+    "/orders/{orderId}": {
+      "schema": "orders",
+      "description": "Müşteri siparişleri ve teslimat durumu"
+    },
+    "/stores/{storeId}": {
+      "schema": "stores",
+      "description": "Bölgesel anlaşmalı market ve mağazalar"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "auditLogs",
+      "description": "KVKK ve güvenlik denetim kayıtları"
+    },
+    "/categories/{categoryId}": {
+      "schema": "categories",
+      "description": "Market ürün ana ve alt kategorileri"
+    },
+    "/stockMovementLogs/{logId}": {
+      "schema": "stockMovementLogs",
+      "description": "Kritik stok ve depo stok hareketleri geçmişi"
+    }
+  }
+}

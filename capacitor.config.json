@@ -1,0 +1,14 @@
+{
+  "appId": "com.hataymarket.delivery",
+  "appName": "HatayMarket",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "backgroundColor": "#00875A"
+    }
+  }
+}
